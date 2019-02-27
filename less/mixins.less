@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+//length(@deviceWidthList)获取数值的长度
+//extract(@deviceWidthList,1)获取数值序号为几的值
+
+//@index 指的是数组的序号 when满足这个条件 当前的序号要小于数组的长度
+.adapterFuc(@index) when (@index <= length(@deviceWidthList)){
+    @media(min-width:extract(@deviceWidthList,@index)) {
+        html{
+            font-size:extract(@deviceWidthList,@index)/@psdwidth*@baseSize;
+        }
+    }
+    //自调用，死循环
+   .adapterFuc(@index+1);
+   
+}
