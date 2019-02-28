@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="../lib/jquery-1.11.3/jquery.min.js"></script>
+		<script src="../lib/layer-v3.1.1/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script type="text/javascript">
+			/*/询问框*/
+			layer.confirm('您是如何看待前端开发？', {
+			   btn: ['重要','奇葩'] //按钮
+			}, function(){
+			   layer.msg('的确很重要', {icon: 1});
+			}, function(){
+			   layer.msg('也可以这样', {
+			     time: 20000, //20s后自动关闭
+			     btn: ['明白了', '知道了']
+			  });
+			});
+		</script>-->
+		
+		
+		<!--具体使用方法：
+		实例：-->
+		
+	<!--	<button id="btn">李菊今天还好吗</button>
+		<script>
+			var Btn=document.querySelector("#btn");
+			btn.onclick=function(){
+				layer.confirm('您是不是也在上班？', {
+			   btn: ['恩','没有'] //按钮
+			}, function(){
+			   layer.msg('谢谢关心 ', {icon: 1});
+			}, function(){
+			   layer.msg('滚', {
+			     time: 20000, //20s后自动关闭
+			     btn: ['明白了', '知道了']
+			  });
+			});
+			}
+		</script>-->
+		
+		<!--鼠标点击一下失去焦点试试-->
+		<from>
+			<label for="">用户名：</label><input type="text" id="text" />
+			<br />
+			<label for="">密码：</label><input type="password" />
+			<br />
+			<input type="submit" value="提交" />
+		</from>
+		<script>
+			var Input=document.querySelector("#text");
+			Input.onblur=function(){
+				//创建正则匹配
+				var reg=/^\d{6,20}$/;
+				//获取用户输入的内容
+				var con = $(this).val();
+				//用正则去匹配内容
+				var result = reg.test(con);
+				
+				if(result){//如果匹配到
+					layer.tips('符合。', 'Input', {
+					  tips: [1, '#3595CC'],
+					  time: 4000
+					});
+				}else{//如果没有匹配到
+					layer.tips('不呵呵', 'Input', {
+					  tips: [1, '#3595CC'],
+					  time: 4000
+					});
+				}
+			}
+		</script>
+	</body>
+</html>
