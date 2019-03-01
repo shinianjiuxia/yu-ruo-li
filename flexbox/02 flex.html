@@ -1,0 +1,52 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            margin:0;
+            padding: 0;
+
+        }
+        #hd{
+            width:80%;
+            height:500px;
+            border: 2px solid red;
+            margin:10px auto;
+              /*  将HD变 为弹性盒模型*/
+             /*   子元素在弹性盒模型中默认沿着主轴排立*/
+            /*    如果所有子元素的宽度总和小于父级宽度；那么子元素设置的宽度可以生效；*/
+           /*     如果所有子元素的宽度总和大于父级宽度；那么子元素设置的宽度会失效，会均分父级元素的宽度*/
+            display: flex;
+          /*  设置元素在主轴上的排立方式 space-around  space-between*/
+            justify-content: space-around;
+            /*设置元素在交叉轴上的排立方式*/
+            align-items: center;
+        }
+
+        #hd div{
+            width:100px;
+            height:150px;
+            background:blue;
+            color:white;
+            line-height: 150px;
+            text-align: center;
+            font-size: 35px;
+            font-weight:700;
+            border:1px solid pink;
+        }
+    </style>
+</head>
+<body>
+<div id="hd">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+    <div>07</div>
+</div>
+</body>
+</html>

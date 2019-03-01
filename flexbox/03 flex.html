@@ -1,0 +1,53 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            margin:0;
+            padding: 0;
+
+        }
+        #hd{
+            width:80%;
+            height:500px;
+            border: 2px solid red;
+            margin:10px auto;
+            /* 将HD变为弹性盒模型*/
+            /*   子元素在弹性盒模型中默认沿着主轴排立*/
+            /* 如果所有子元素的宽度总和小于父级宽度；那么子元素设置的宽度可以生效；*/
+            /*  如果所有子元素的宽度总和大于父级宽度；那么子元素设置的宽度会失效，会均分父级元素的宽度*/
+            display: flex;
+             /* 如果子元素的宽度总和大于父级元素的宽度，设置子元素换行显示*/
+            flex-wrap: wrap;
+            justify-content:space-between;
+         /*   多行时在交叉抽上的排列方式*/
+            align-content: space-between;
+        }
+
+        #hd div{
+            width:100px;
+            height:150px;
+            background:blue;
+            color:white;
+            line-height: 150px;
+            text-align: center;
+            font-size: 35px;
+            font-weight:700;
+            border:1px solid pink;
+        }
+    </style>
+</head>
+<body>
+<div id="hd">
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
+    <div>04</div>
+    <div>05</div>
+    <div>06</div>
+    <div>07</div>
+</div>
+</body>
+</html>
