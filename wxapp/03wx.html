@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div>
+     wxml是框架设计的一套标签语言，结合组件、wxs和事件系统，可以构建出页面结构。
+     <div>
+         语法：
+         <标签名 属性名="属性值1"  属性名="属性值2" ...>
+             ....
+         </标签名   >
+     </div>
+     <div>
+         四个特性：
+         <p>数据绑定:
+             <HTML>
+                <view>
+                    <text>{{message}}</text>
+                </view>
+             //index.js
+             Page({
+                data:{
+                  message:"hello，wrold"
+                }
+                })
+             </HTML>
+
+             <html>
+            <!-- index.wxml-->
+             <view hidden="{{flag ? true false}}">
+                 Hidden
+             </view>
+           <!--  index.js-->
+            Page({
+               data:{
+                   flag:false
+              }
+            })
+            <!-- 如果data数据中flag传入true则隐藏view-->
+             </html>
+         </p>
+         <p>列表渲染:
+             <!-- index.wxml-->
+             <view>
+                 <block wx:for="{{items}}" wx:for-item="item" wx:key="index">
+                     <view>{{index}}:{{item.name}}</view>
+                 </block>
+             </view>
+             <!--  index.js-->
+             Page({
+                data:{
+                     items:[
+                        {name:"商品1"},
+                        {name:"商品2"},
+                         {name:"商品3"},
+                        {name:"商品4"},
+                         ]
+                     }
+             })
+         </p>
+         <p>条件渲染：
+             <!-- index.wxml-->
+             <view>今天吃什么？</view>
+             <view wx:if="{{condition===1}}">
+                 饺子
+             </view>
+             <view wx:elif="{{condition===2}}">
+                 米饭
+             </view>
+             <view wx:else>
+                面食
+             </view>
+             <!--  index.js-->
+             Page（｛
+                 data:{
+                       condition:Math.floor(Math.random()*3+1)
+                       }
+             ｝）
+         </p>
+         <p>模板引用:可以在WXML定义自己的模板片段，达到不停地调用
+             <!-- index.wxml-->
+             <template name="tempItem">
+                      <view>
+                            <view>收件人：{{name}}</view>
+                            <view>联系方式：{{phone}}</view>
+                            <view>地址：{{address}}</view>
+                      </view>
+             </template>
+
+             <template is="tempItem" data="{{...item}}"></template>
+             <!--  index.js-->
+             Page({
+                 data:{
+                       item:{
+                             name:"张三",
+                             phone："16851278979609"，
+                             address："中国"
+                             }
+                      }
+             })
+             <div>俩种模版引用的方式：import和include
+                  import：只能引用我们所定义的模版文件里面的模版模块
+         <!-- index.wxml-->
+                  <import src="a.wxml"></import>
+                  <template is="a"></template>
+         <!-- a.wxml-->
+                  <view>Hello,world</view><!--不能引用-->
+                  <template name="a"> Hello,world! </template><!--能引用-->
+
+                include：引用除定义模板之外的所有模板
+         <!-- index.wxml-->
+                  <include src="a.wxml"/>
+                   <template is="a"></template>
+         <!-- a.wxml-->
+                 <template name="a">
+                          <view>
+                              This is a.wxml
+                          </view>
+                 </template><!--不能引用-->
+                 <view>Hello,world</view><!--能引用-->
+             </div>
+         </p>
+     </div>
+ </div>
+
+</body>
+</html>

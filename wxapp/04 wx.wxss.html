@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WXSS</title>
+</head>
+<body>
+<div>
+    wxss:是一套样式语言，用于描述WXML的组件样式
+    <div>尺寸单位rpx:(是一个响应式的像素)</div>
+    <div>样式导入：通过@import进行导入
+         <small>
+             age:
+            <!-- index.wxml-->
+             <view class="container">
+                 Hello,world!
+             </view>
+
+             <!-- index.wxss-->
+             @import"./assets.wxss";<!--外联样式的引入-->
+             .container{<!--不生效-->
+                  color:red;
+             }
+
+             <!-- assets.wxss-->
+             .container{<!--外联样式生效被引入-->
+                border: 1px solid #000000;
+             }
+
+         </small>
+
+    </div>
+    <div>内联样式：
+        <!-- index.wxml-->
+        <view style="width:500rpx;height=30rpx;background-color:{{colorValue}};">
+            Hello,world!
+        </view>
+        <!--  index.js-->
+        Page({
+        data:{
+        colorValue:'red'
+        }
+        })
+    </div>
+    <div>选择器：</div>
+</div>
+
+</body>
+</html>
